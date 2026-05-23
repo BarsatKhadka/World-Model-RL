@@ -6,6 +6,7 @@
 #SBATCH --mem=32G
 #SBATCH --time=02:00:00
 #SBATCH --array=0-11
+#SBATCH --exclude=node049
 #SBATCH --output=logs/%x_%A_%a.out
 #SBATCH --error=logs/%x_%A_%a.err
 
