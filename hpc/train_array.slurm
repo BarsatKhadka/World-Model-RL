@@ -51,10 +51,10 @@ esac
 echo "[start] $(date)  host=$(hostname)  task=$SLURM_ARRAY_TASK_ID  policy=$POLICY  name=$NAME"
 nvidia-smi --query-gpu=name --format=csv
 
-# Sanity check: wandb must be logged in (or the training crashes 5 seconds in).
+# Sanity check: wandb credentials must be present in ~/.netrc.
 # Run `wandb login` on the login node once before submitting.
-if ! wandb status 2>/dev/null | grep -q "Currently logged in"; then
-    echo "ERROR: wandb not logged in. Run 'wandb login' on the login node."
+if [ ! -f "$HOME/.netrc" ] || ! grep -q "api.wandb.ai" "$HOME/.netrc"; then
+    echo "ERROR: no wandb credentials in $HOME/.netrc. Run 'wandb login' on the login node."
     exit 1
 fi
 
