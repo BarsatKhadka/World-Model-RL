@@ -6,6 +6,7 @@ from dataclasses import dataclass
 
 import gymnasium as gym
 import minigrid  # noqa: F401  (registers MiniGrid-* envs with gymnasium)
+import custom_envs  # noqa: F401  (registers SpuriousFourRooms-v0)
 from minigrid.wrappers import FlatObsWrapper
 import numpy as np
 import torch
@@ -36,8 +37,12 @@ class Args:
     """whether to capture videos of the agent performances (check out `videos` folder)"""
 
     # Algorithm specific arguments
-    env_id: str = "MiniGrid-FourRooms-v0"
+    env_id: str = "SpuriousFourRooms-v0"
     """the id of the environment"""
+    goal_room: str = "random"
+    """goal placement for SpuriousFourRooms: 0/1/2/3 or 'random'"""
+    yellow_room: str = "follow"
+    """yellow tile placement: 0/1/2/3, 'follow' (=goal_room), 'random', or 'off'"""
     total_timesteps: int = 500000
     """total timesteps of the experiments"""
     learning_rate: float = 2.5e-4
@@ -80,13 +85,25 @@ class Args:
     """the number of iterations (computed in runtime)"""
 
 
-def make_env(env_id, idx, capture_video, run_name):
+def _parse_goal_room(s):
+    return s if s == "random" else int(s)
+
+
+def _parse_yellow_room(s):
+    return s if s in ("follow", "random", "off") else int(s)
+
+
+def make_env(env_id, idx, capture_video, run_name, goal_room=None, yellow_room=None):
     def thunk():
+        extra = {}
+        if env_id.startswith("SpuriousFourRooms"):
+            extra["goal_room"] = _parse_goal_room(goal_room)
+            extra["yellow_room"] = _parse_yellow_room(yellow_room)
         if capture_video and idx == 0:
-            env = gym.make(env_id, render_mode="rgb_array")
+            env = gym.make(env_id, render_mode="rgb_array", **extra)
             env = gym.wrappers.RecordVideo(env, f"videos/{run_name}")
         else:
-            env = gym.make(env_id)
+            env = gym.make(env_id, **extra)
         env = FlatObsWrapper(env)
         env = gym.wrappers.RecordEpisodeStatistics(env)
         return env
@@ -134,7 +151,8 @@ if __name__ == "__main__":
     args.batch_size = int(args.num_envs * args.num_steps)
     args.minibatch_size = int(args.batch_size // args.num_minibatches)
     args.num_iterations = args.total_timesteps // args.batch_size
-    run_name = f"{args.env_id}__{args.exp_name}__{args.seed}__{int(time.time())}"
+    cond_tag = f"g{args.goal_room}_y{args.yellow_room}" if args.env_id.startswith("SpuriousFourRooms") else args.env_id
+    run_name = f"{cond_tag}__{args.exp_name}__{args.seed}__{int(time.time())}"
     if args.track:
         import wandb
 
@@ -163,7 +181,13 @@ if __name__ == "__main__":
 
     # env setup
     envs = gym.vector.SyncVectorEnv(
-        [make_env(args.env_id, i, args.capture_video, run_name) for i in range(args.num_envs)],
+        [
+            make_env(
+                args.env_id, i, args.capture_video, run_name,
+                goal_room=args.goal_room, yellow_room=args.yellow_room,
+            )
+            for i in range(args.num_envs)
+        ],
     )
     assert isinstance(envs.single_action_space, gym.spaces.Discrete), "only discrete action space is supported"
 
@@ -318,6 +342,10 @@ if __name__ == "__main__":
         writer.add_scalar("losses/explained_variance", explained_var, global_step)
         print("SPS:", int(global_step / (time.time() - start_time)))
         writer.add_scalar("charts/SPS", int(global_step / (time.time() - start_time)), global_step)
+
+    ckpt_path = f"runs/{run_name}/agent.pt"
+    torch.save(agent.state_dict(), ckpt_path)
+    print(f"Saved agent to {ckpt_path}")
 
     envs.close()
     writer.close()
