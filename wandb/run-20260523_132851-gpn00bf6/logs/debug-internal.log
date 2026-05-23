@@ -1,0 +1,19 @@
+{"time":"2026-05-23T13:28:51.728481718-05:00","level":"INFO","msg":"wandb-core"}
+{"time":"2026-05-23T13:28:51.728844212-05:00","level":"INFO","msg":"stream: starting","core version":"0.27.0"}
+{"time":"2026-05-23T13:28:51.958063733-05:00","level":"INFO","msg":"stream: created new stream","id":"gpn00bf6"}
+{"time":"2026-05-23T13:28:51.95811651-05:00","level":"INFO","msg":"handler: started"}
+{"time":"2026-05-23T13:28:51.959194037-05:00","level":"INFO","msg":"stream: started"}
+{"time":"2026-05-23T13:28:51.959286512-05:00","level":"INFO","msg":"writer: started","stream_id":"gpn00bf6"}
+{"time":"2026-05-23T13:28:51.959329191-05:00","level":"INFO","msg":"sender: started"}
+{"time":"2026-05-23T13:28:57.35240151-05:00","level":"INFO","msg":"filestream: sending request","total_files":1,"console_offset":0,"console_lines":1}
+{"time":"2026-05-23T13:28:57.583797299-05:00","level":"INFO","msg":"filestream: request sent","status":"200 OK"}
+{"time":"2026-05-23T13:29:02.324141316-05:00","level":"WARN","msg":"tensorboard: no root directory","error":"timed out after 10s"}
+{"time":"2026-05-23T13:29:02.324199752-05:00","level":"INFO","msg":"tensorboard: tracking new log directory","rootDir":{},"logDir":"LocalOrCloudPath(LocalPath=\"/ddnlus/barsatkhadka/World-Model-RL/runs/grandom_yfollow__cond_C__1__1779560930\")","namespace":""}
+{"time":"2026-05-23T13:29:02.326004594-05:00","level":"INFO","msg":"tensorboard: saving file","fileLocation":"/ddnlus/barsatkhadka/World-Model-RL/runs/grandom_yfollow__cond_C__1__1779560930/events.out.tfevents.1779560932.node049.566987.0","runPath":"runs/grandom_yfollow__cond_C__1__1779560930/events.out.tfevents.1779560932.node049.566987.0"}
+{"time":"2026-05-23T13:29:02.661773226-05:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2026-05-23T13:29:02.661857362-05:00","level":"INFO","msg":"filestream: sending request","total_files":2,"console_offset":1,"console_lines":21,"uploaded_len":9,"complete":true,"exit_code":1}
+{"time":"2026-05-23T13:29:02.806699437-05:00","level":"INFO","msg":"filestream: request sent","status":"200 OK"}
+{"time":"2026-05-23T13:29:02.806776053-05:00","level":"INFO","msg":"stream: finishing up"}
+{"time":"2026-05-23T13:29:02.806786058-05:00","level":"INFO","msg":"handler: closed"}
+{"time":"2026-05-23T13:29:02.80763732-05:00","level":"INFO","msg":"sender: closed"}
+{"time":"2026-05-23T13:29:02.807667763-05:00","level":"INFO","msg":"stream: all finished"}

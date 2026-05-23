@@ -1,7 +1,7 @@
 
-Agent:        runs/g1_yoff__baseline_fixed__1__1779559961/agent.pt
+Agent:        runs/g1_yoff__baseline_fixed__1__1779560930/agent.pt
 Eval env:     SpuriousFourRooms-v0  goal_room=random  yellow_room=off
 Episodes:     100  (base_seed=2000, deterministic=False)
-Success rate: 0.330  (33/100)
-Mean return:  0.2424  (std 0.3739)
-Mean length:  76.7  (std 36.8)
+Success rate: 0.270  (27/100)
+Mean return:  0.1907  (std 0.3394)
+Mean length:  81.8  (std 33.2)

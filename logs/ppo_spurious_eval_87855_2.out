@@ -1,0 +1,20 @@
+Unloading shared
+  WARNING: Did not unuse /cm/shared/modulefiles
+[start] Sat May 23 01:32:21 PM CDT 2026  task=2  name=cond_A  ckpt=runs/g1_yfollow__cond_A__1__1779560930/agent.pt
+----- S_train: own env (goal=1, yellow=follow) -----
+
+Agent:        runs/g1_yfollow__cond_A__1__1779560930/agent.pt
+Eval env:     SpuriousFourRooms-v0  goal_room=1  yellow_room=follow
+Episodes:     100  (base_seed=1000, deterministic=False)
+Success rate: 0.300  (30/100)
+Mean return:  0.2096  (std 0.3389)
+Mean length:  80.0  (std 32.9)
+----- S_test: held-out (goal=random, yellow=off) -----
+
+Agent:        runs/g1_yfollow__cond_A__1__1779560930/agent.pt
+Eval env:     SpuriousFourRooms-v0  goal_room=random  yellow_room=off
+Episodes:     100  (base_seed=2000, deterministic=False)
+Success rate: 0.190  (19/100)
+Mean return:  0.1328  (std 0.3006)
+Mean length:  87.3  (std 29.5)
+[done] Sat May 23 01:32:34 PM CDT 2026  name=cond_A
