@@ -1,0 +1,20 @@
+Unloading shared
+  WARNING: Did not unuse /cm/shared/modulefiles
+[start] Sat May 23 03:53:21 PM CDT 2026  task=9  policy=cnn  name=cond_B  ckpt=runs/cnn__g1_yrandom__cond_B__3__1779568248/agent.pt
+----- S_train: own env (goal=1, yellow=random) -----
+
+Agent:        runs/cnn__g1_yrandom__cond_B__3__1779568248/agent.pt
+Eval env:     SpuriousFourRooms-v0  goal_room=1  yellow_room=random
+Episodes:     100  (base_seed=1000, deterministic=False)
+Success rate: 0.770  (77/100)
+Mean return:  0.5309  (std 0.3554)
+Mean length:  49.6  (std 35.8)
+----- S_test: held-out (goal=random, yellow=off) -----
+
+Agent:        runs/cnn__g1_yrandom__cond_B__3__1779568248/agent.pt
+Eval env:     SpuriousFourRooms-v0  goal_room=random  yellow_room=off
+Episodes:     100  (base_seed=2000, deterministic=False)
+Success rate: 0.780  (78/100)
+Mean return:  0.5647  (std 0.3523)
+Mean length:  45.9  (std 35.3)
+[done] Sat May 23 03:53:30 PM CDT 2026  policy=cnn  name=cond_B
