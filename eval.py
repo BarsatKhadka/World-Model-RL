@@ -13,9 +13,9 @@ import minigrid  # noqa: F401
 import numpy as np
 import torch
 import tyro
-from minigrid.wrappers import FlatObsWrapper
+from minigrid.wrappers import FlatObsWrapper, ImgObsWrapper
 
-from ppo import Agent, _parse_goal_room, _parse_yellow_room
+from ppo import build_agent, _parse_goal_room, _parse_yellow_room
 
 
 @dataclass
@@ -35,15 +35,17 @@ class Args:
     deterministic: bool = False
     """if True, take argmax of policy logits instead of sampling"""
     cuda: bool = True
+    policy: str = "mlp"
+    """policy architecture used at training time: 'mlp' or 'cnn'"""
 
 
-def make_eval_env(env_id, goal_room, yellow_room):
+def make_eval_env(env_id, goal_room, yellow_room, policy="mlp"):
     extra = {}
     if env_id.startswith("SpuriousFourRooms"):
         extra["goal_room"] = _parse_goal_room(goal_room)
         extra["yellow_room"] = _parse_yellow_room(yellow_room)
     env = gym.make(env_id, **extra)
-    env = FlatObsWrapper(env)
+    env = ImgObsWrapper(env) if policy == "cnn" else FlatObsWrapper(env)
     env = gym.wrappers.RecordEpisodeStatistics(env)
     return env
 
@@ -55,14 +57,14 @@ if __name__ == "__main__":
     # Agent's __init__ uses envs.single_observation_space / single_action_space.
     # Wrap one env in SyncVectorEnv so those attributes exist.
     dummy_vec = gym.vector.SyncVectorEnv(
-        [lambda: make_eval_env(args.env_id, args.goal_room, args.yellow_room)]
+        [lambda: make_eval_env(args.env_id, args.goal_room, args.yellow_room, args.policy)]
     )
-    agent = Agent(dummy_vec).to(device)
+    agent = build_agent(args.policy, dummy_vec).to(device)
     agent.load_state_dict(torch.load(args.agent_path, map_location=device))
     agent.eval()
     dummy_vec.close()
 
-    env = make_eval_env(args.env_id, args.goal_room, args.yellow_room)
+    env = make_eval_env(args.env_id, args.goal_room, args.yellow_room, args.policy)
     returns, lengths = [], []
     for ep in range(args.num_episodes):
         obs, _ = env.reset(seed=args.seed + ep)

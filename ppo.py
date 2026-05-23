@@ -7,7 +7,7 @@ from dataclasses import dataclass
 import gymnasium as gym
 import minigrid  # noqa: F401  (registers MiniGrid-* envs with gymnasium)
 import custom_envs  # noqa: F401  (registers SpuriousFourRooms-v0)
-from minigrid.wrappers import FlatObsWrapper
+from minigrid.wrappers import FlatObsWrapper, ImgObsWrapper
 import numpy as np
 import torch
 import torch.nn as nn
@@ -43,6 +43,8 @@ class Args:
     """goal placement for SpuriousFourRooms: 0/1/2/3 or 'random'"""
     yellow_room: str = "follow"
     """yellow tile placement: 0/1/2/3, 'follow' (=goal_room), 'random', or 'off'"""
+    policy: str = "mlp"
+    """policy architecture: 'mlp' (flat-obs) or 'cnn' (7x7 image)"""
     total_timesteps: int = 500000
     """total timesteps of the experiments"""
     learning_rate: float = 2.5e-4
@@ -93,7 +95,7 @@ def _parse_yellow_room(s):
     return s if s in ("follow", "random", "off") else int(s)
 
 
-def make_env(env_id, idx, capture_video, run_name, goal_room=None, yellow_room=None):
+def make_env(env_id, idx, capture_video, run_name, goal_room=None, yellow_room=None, policy="mlp"):
     def thunk():
         extra = {}
         if env_id.startswith("SpuriousFourRooms"):
@@ -104,7 +106,10 @@ def make_env(env_id, idx, capture_video, run_name, goal_room=None, yellow_room=N
             env = gym.wrappers.RecordVideo(env, f"videos/{run_name}")
         else:
             env = gym.make(env_id, **extra)
-        env = FlatObsWrapper(env)
+        if policy == "cnn":
+            env = ImgObsWrapper(env)       # 7x7x3 uint8 image of the agent's view
+        else:
+            env = FlatObsWrapper(env)      # long flat one-hot vector
         env = gym.wrappers.RecordEpisodeStatistics(env)
         return env
 
@@ -117,22 +122,22 @@ def layer_init(layer, std=np.sqrt(2), bias_const=0.0):
     return layer
 
 
-class Agent(nn.Module):
+class MLPAgent(nn.Module):
+    """Flat-vector observation; tanh MLP actor and critic."""
+
     def __init__(self, envs):
         super().__init__()
+        in_dim = int(np.array(envs.single_observation_space.shape).prod())
+        n_actions = envs.single_action_space.n
         self.critic = nn.Sequential(
-            layer_init(nn.Linear(np.array(envs.single_observation_space.shape).prod(), 64)),
-            nn.Tanh(),
-            layer_init(nn.Linear(64, 64)),
-            nn.Tanh(),
+            layer_init(nn.Linear(in_dim, 64)), nn.Tanh(),
+            layer_init(nn.Linear(64, 64)),    nn.Tanh(),
             layer_init(nn.Linear(64, 1), std=1.0),
         )
         self.actor = nn.Sequential(
-            layer_init(nn.Linear(np.array(envs.single_observation_space.shape).prod(), 64)),
-            nn.Tanh(),
-            layer_init(nn.Linear(64, 64)),
-            nn.Tanh(),
-            layer_init(nn.Linear(64, envs.single_action_space.n), std=0.01),
+            layer_init(nn.Linear(in_dim, 64)), nn.Tanh(),
+            layer_init(nn.Linear(64, 64)),    nn.Tanh(),
+            layer_init(nn.Linear(64, n_actions), std=0.01),
         )
 
     def get_value(self, x):
@@ -146,13 +151,62 @@ class Agent(nn.Module):
         return action, probs.log_prob(action), probs.entropy(), self.critic(x)
 
 
+class CNNAgent(nn.Module):
+    """7x7x3 image observation; small CNN trunk shared by actor and critic."""
+
+    def __init__(self, envs):
+        super().__init__()
+        obs_shape = envs.single_observation_space.shape  # (7, 7, 3)
+        h, w, c = obs_shape
+        n_actions = envs.single_action_space.n
+        self.encoder = nn.Sequential(
+            layer_init(nn.Conv2d(c, 16, kernel_size=3, padding=1)), nn.ReLU(),
+            layer_init(nn.Conv2d(16, 32, kernel_size=3, padding=1)), nn.ReLU(),
+            nn.Flatten(),
+            layer_init(nn.Linear(32 * h * w, 64)), nn.ReLU(),
+        )
+        self.actor = layer_init(nn.Linear(64, n_actions), std=0.01)
+        self.critic = layer_init(nn.Linear(64, 1), std=1.0)
+
+    def _encode(self, x):
+        # MiniGrid image channels are small ints (max ~11); normalize roughly into [0, 1].
+        x = x.float() / 10.0
+        # (B, H, W, C) -> (B, C, H, W)
+        if x.dim() == 4 and x.shape[-1] == 3:
+            x = x.permute(0, 3, 1, 2)
+        return self.encoder(x)
+
+    def get_value(self, x):
+        return self.critic(self._encode(x))
+
+    def get_action_and_value(self, x, action=None):
+        h = self._encode(x)
+        logits = self.actor(h)
+        probs = Categorical(logits=logits)
+        if action is None:
+            action = probs.sample()
+        return action, probs.log_prob(action), probs.entropy(), self.critic(h)
+
+
+def build_agent(policy, envs):
+    if policy == "cnn":
+        return CNNAgent(envs)
+    if policy == "mlp":
+        return MLPAgent(envs)
+    raise ValueError(f"Unknown policy: {policy!r}")
+
+
+# Backwards-compat alias for any code that imported `Agent`.
+Agent = MLPAgent
+
+
 if __name__ == "__main__":
     args = tyro.cli(Args)
     args.batch_size = int(args.num_envs * args.num_steps)
     args.minibatch_size = int(args.batch_size // args.num_minibatches)
     args.num_iterations = args.total_timesteps // args.batch_size
     cond_tag = f"g{args.goal_room}_y{args.yellow_room}" if args.env_id.startswith("SpuriousFourRooms") else args.env_id
-    run_name = f"{cond_tag}__{args.exp_name}__{args.seed}__{int(time.time())}"
+    run_name = f"{args.policy}__{cond_tag}__{args.exp_name}__{args.seed}__{int(time.time())}"
     if args.track:
         import wandb
 
@@ -185,13 +239,14 @@ if __name__ == "__main__":
             make_env(
                 args.env_id, i, args.capture_video, run_name,
                 goal_room=args.goal_room, yellow_room=args.yellow_room,
+                policy=args.policy,
             )
             for i in range(args.num_envs)
         ],
     )
     assert isinstance(envs.single_action_space, gym.spaces.Discrete), "only discrete action space is supported"
 
-    agent = Agent(envs).to(device)
+    agent = build_agent(args.policy, envs).to(device)
     optimizer = optim.Adam(agent.parameters(), lr=args.learning_rate, eps=1e-5)
 
     # ALGO Logic: Storage setup

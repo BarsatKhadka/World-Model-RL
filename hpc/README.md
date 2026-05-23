@@ -16,14 +16,22 @@ wandb login    # paste API key
 ## Run the experiment
 
 ```bash
-# 1. Train all 6 conditions in parallel (each ~10 min wall on GPU)
+# 1. Train all 12 (policy × condition) tasks in parallel.
+#    Array 0-5  = MLP × {baseline_fixed, baseline_random, A, B, C, D}
+#    Array 6-11 = CNN × same six conditions
 TRAIN_JOBID=$(sbatch --parsable hpc/train_array.slurm)
 
 # 2. Eval each agent in own env + held-out env (auto-runs after training)
 sbatch --dependency=afterok:$TRAIN_JOBID hpc/eval_array.slurm
 
-# 3. After eval finishes, print the Method 1 table
+# 3. After eval finishes, print the Method 1 tables (MLP, then CNN)
 python hpc/summarize.py
+```
+
+To run a single policy only:
+```bash
+sbatch --array=0-5  hpc/train_array.slurm   # MLP only
+sbatch --array=6-11 hpc/train_array.slurm   # CNN only
 ```
 
 ## What each script does
