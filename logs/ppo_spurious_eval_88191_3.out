@@ -1,0 +1,20 @@
+Unloading shared
+  WARNING: Did not unuse /cm/shared/modulefiles
+[start] Sat May 23 02:42:23 PM CDT 2026  task=3  policy=mlp  name=cond_B  ckpt=runs/mlp__g1_yrandom__cond_B__1__1779562050/agent.pt
+----- S_train: own env (goal=1, yellow=random) -----
+
+Agent:        runs/mlp__g1_yrandom__cond_B__1__1779562050/agent.pt
+Eval env:     SpuriousFourRooms-v0  goal_room=1  yellow_room=random
+Episodes:     100  (base_seed=1000, deterministic=False)
+Success rate: 0.670  (67/100)
+Mean return:  0.4332  (std 0.3641)
+Mean length:  59.3  (std 36.2)
+----- S_test: held-out (goal=random, yellow=off) -----
+
+Agent:        runs/mlp__g1_yrandom__cond_B__1__1779562050/agent.pt
+Eval env:     SpuriousFourRooms-v0  goal_room=random  yellow_room=off
+Episodes:     100  (base_seed=2000, deterministic=False)
+Success rate: 0.620  (62/100)
+Mean return:  0.4457  (std 0.3897)
+Mean length:  57.4  (std 38.5)
+[done] Sat May 23 02:42:33 PM CDT 2026  policy=mlp  name=cond_B

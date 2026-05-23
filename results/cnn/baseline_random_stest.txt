@@ -1,0 +1,7 @@
+
+Agent:        runs/cnn__grandom_yoff__baseline_random__1__1779562055/agent.pt
+Eval env:     SpuriousFourRooms-v0  goal_room=random  yellow_room=off
+Episodes:     100  (base_seed=2000, deterministic=False)
+Success rate: 0.800  (80/100)
+Mean return:  0.5612  (std 0.3455)
+Mean length:  46.5  (std 34.9)

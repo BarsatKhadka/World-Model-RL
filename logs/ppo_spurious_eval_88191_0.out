@@ -1,0 +1,20 @@
+Unloading shared
+  WARNING: Did not unuse /cm/shared/modulefiles
+[start] Sat May 23 02:42:23 PM CDT 2026  task=0  policy=mlp  name=baseline_fixed  ckpt=runs/mlp__g1_yoff__baseline_fixed__1__1779562050/agent.pt
+----- S_train: own env (goal=1, yellow=off) -----
+
+Agent:        runs/mlp__g1_yoff__baseline_fixed__1__1779562050/agent.pt
+Eval env:     SpuriousFourRooms-v0  goal_room=1  yellow_room=off
+Episodes:     100  (base_seed=1000, deterministic=False)
+Success rate: 0.850  (85/100)
+Mean return:  0.5741  (std 0.3183)
+Mean length:  45.7  (std 32.5)
+----- S_test: held-out (goal=random, yellow=off) -----
+
+Agent:        runs/mlp__g1_yoff__baseline_fixed__1__1779562050/agent.pt
+Eval env:     SpuriousFourRooms-v0  goal_room=random  yellow_room=off
+Episodes:     100  (base_seed=2000, deterministic=False)
+Success rate: 0.890  (89/100)
+Mean return:  0.5949  (std 0.2920)
+Mean length:  43.8  (std 30.0)
+[done] Sat May 23 02:42:32 PM CDT 2026  policy=mlp  name=baseline_fixed

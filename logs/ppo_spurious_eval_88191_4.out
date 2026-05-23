@@ -1,0 +1,6 @@
+Unloading shared
+  WARNING: Did not unuse /cm/shared/modulefiles
+[start] Sat May 23 02:42:23 PM CDT 2026  task=4  policy=mlp  name=cond_C  ckpt=runs/mlp__grandom_yfollow__cond_C__1__1779563867/agent.pt
+----- S_train: own env (goal=random, yellow=follow) -----
+----- S_test: held-out (goal=random, yellow=off) -----
+[done] Sat May 23 02:42:26 PM CDT 2026  policy=mlp  name=cond_C

@@ -1,0 +1,7 @@
+
+Agent:        runs/mlp__g1_yrandom__cond_B__1__1779562050/agent.pt
+Eval env:     SpuriousFourRooms-v0  goal_room=random  yellow_room=off
+Episodes:     100  (base_seed=2000, deterministic=False)
+Success rate: 0.650  (65/100)
+Mean return:  0.4313  (std 0.3758)
+Mean length:  59.3  (std 37.4)

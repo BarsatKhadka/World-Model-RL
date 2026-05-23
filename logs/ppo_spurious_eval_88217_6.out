@@ -1,0 +1,20 @@
+Unloading shared
+  WARNING: Did not unuse /cm/shared/modulefiles
+[start] Sat May 23 02:44:34 PM CDT 2026  task=6  policy=cnn  name=baseline_fixed  ckpt=runs/cnn__g1_yoff__baseline_fixed__1__1779562055/agent.pt
+----- S_train: own env (goal=1, yellow=off) -----
+
+Agent:        runs/cnn__g1_yoff__baseline_fixed__1__1779562055/agent.pt
+Eval env:     SpuriousFourRooms-v0  goal_room=1  yellow_room=off
+Episodes:     100  (base_seed=1000, deterministic=False)
+Success rate: 0.710  (71/100)
+Mean return:  0.4902  (std 0.3613)
+Mean length:  53.4  (std 35.9)
+----- S_test: held-out (goal=random, yellow=off) -----
+
+Agent:        runs/cnn__g1_yoff__baseline_fixed__1__1779562055/agent.pt
+Eval env:     SpuriousFourRooms-v0  goal_room=random  yellow_room=off
+Episodes:     100  (base_seed=2000, deterministic=False)
+Success rate: 0.660  (66/100)
+Mean return:  0.4594  (std 0.3807)
+Mean length:  56.3  (std 37.8)
+[done] Sat May 23 02:44:44 PM CDT 2026  policy=cnn  name=baseline_fixed

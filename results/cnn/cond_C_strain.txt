@@ -1,0 +1,7 @@
+
+Agent:        runs/cnn__grandom_yfollow__cond_C__1__1779563867/agent.pt
+Eval env:     SpuriousFourRooms-v0  goal_room=random  yellow_room=follow
+Episodes:     100  (base_seed=1000, deterministic=False)
+Success rate: 0.950  (95/100)
+Mean return:  0.6949  (std 0.2428)
+Mean length:  33.3  (std 25.5)

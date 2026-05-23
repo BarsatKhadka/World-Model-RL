@@ -1,0 +1,4 @@
+Unloading shared
+  WARNING: Did not unuse /cm/shared/modulefiles
+[start] Sat May 23 02:43:56 PM CDT 2026  task=11  policy=cnn  name=cond_D  ckpt=runs/cnn__grandom_yrandom__cond_D__1__1779563867/agent.pt
+----- S_train: own env (goal=random, yellow=random) -----
