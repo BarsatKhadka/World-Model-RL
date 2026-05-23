@@ -1,0 +1,24 @@
+/ddnlus/barsatkhadka/World-Model-RL/venv/lib/python3.12/site-packages/tyro/_parsers.py:353: UserWarning: The field `wandb-entity` is annotated with type `<class 'str'>`, but the default value `None` has type `<class 'NoneType'>`. We'll try to handle this gracefully, but it may cause unexpected behavior.
+  warnings.warn(message)
+/ddnlus/barsatkhadka/World-Model-RL/venv/lib/python3.12/site-packages/tyro/_parsers.py:353: UserWarning: The field `target-kl` is annotated with type `<class 'float'>`, but the default value `None` has type `<class 'NoneType'>`. We'll try to handle this gracefully, but it may cause unexpected behavior.
+  warnings.warn(message)
+Traceback (most recent call last):
+  File "/ddnlus/barsatkhadka/World-Model-RL/ppo.py", line 159, in <module>
+    wandb.init(
+  File "/ddnlus/barsatkhadka/World-Model-RL/venv/lib/python3.12/site-packages/wandb/sdk/wandb_init.py", line 1613, in init
+    get_sentry().reraise(e)
+  File "/ddnlus/barsatkhadka/World-Model-RL/venv/lib/python3.12/site-packages/wandb/analytics/sentry.py", line 191, in reraise
+    raise exc.with_traceback(tb)
+  File "/ddnlus/barsatkhadka/World-Model-RL/venv/lib/python3.12/site-packages/wandb/sdk/wandb_init.py", line 1530, in init
+    wi.maybe_login(init_settings)
+  File "/ddnlus/barsatkhadka/World-Model-RL/venv/lib/python3.12/site-packages/wandb/sdk/wandb_init.py", line 200, in maybe_login
+    wandb_login._login(
+  File "/ddnlus/barsatkhadka/World-Model-RL/venv/lib/python3.12/site-packages/wandb/sdk/wandb_login.py", line 190, in _login
+    auth = _find_or_prompt_for_key(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ddnlus/barsatkhadka/World-Model-RL/venv/lib/python3.12/site-packages/wandb/sdk/wandb_login.py", line 266, in _find_or_prompt_for_key
+    auth = wbauth.authenticate_session(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ddnlus/barsatkhadka/World-Model-RL/venv/lib/python3.12/site-packages/wandb/sdk/lib/wbauth/authenticate.py", line 139, in authenticate_session
+    raise UsageError(
+wandb.errors.errors.UsageError: No API key configured. Use `wandb login` to log in.

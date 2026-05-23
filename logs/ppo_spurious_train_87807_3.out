@@ -1,0 +1,6 @@
+Unloading shared
+  WARNING: Did not unuse /cm/shared/modulefiles
+[start] Sat May 23 01:01:09 PM CDT 2026  host=node048  task=3  name=cond_B
+name
+NVIDIA L40S
+[done] Sat May 23 01:02:54 PM CDT 2026  name=cond_B
