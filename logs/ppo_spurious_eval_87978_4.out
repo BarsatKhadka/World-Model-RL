@@ -1,0 +1,6 @@
+Unloading shared
+  WARNING: Did not unuse /cm/shared/modulefiles
+[start] Sat May 23 01:40:44 PM CDT 2026  task=4  name=cond_C  ckpt=runs/grandom_yfollow__cond_C__1__1779559961/agent.pt
+----- S_train: own env (goal=random, yellow=follow) -----
+----- S_test: held-out (goal=random, yellow=off) -----
+[done] Sat May 23 01:40:48 PM CDT 2026  name=cond_C

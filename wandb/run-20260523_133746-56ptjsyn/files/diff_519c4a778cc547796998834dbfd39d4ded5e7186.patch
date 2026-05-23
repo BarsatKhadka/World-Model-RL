@@ -1,0 +1,163 @@
+diff --git a/results/baseline_fixed_stest.txt b/results/baseline_fixed_stest.txt
+deleted file mode 100644
+index ff2ca25..0000000
+--- a/results/baseline_fixed_stest.txt
++++ /dev/null
+@@ -1,7 +0,0 @@
+-
+-Agent:        runs/g1_yoff__baseline_fixed__1__1779560930/agent.pt
+-Eval env:     SpuriousFourRooms-v0  goal_room=random  yellow_room=off
+-Episodes:     100  (base_seed=2000, deterministic=False)
+-Success rate: 0.270  (27/100)
+-Mean return:  0.1907  (std 0.3394)
+-Mean length:  81.8  (std 33.2)
+diff --git a/results/baseline_fixed_strain.txt b/results/baseline_fixed_strain.txt
+deleted file mode 100644
+index d9f7349..0000000
+--- a/results/baseline_fixed_strain.txt
++++ /dev/null
+@@ -1,7 +0,0 @@
+-
+-Agent:        runs/g1_yoff__baseline_fixed__1__1779560930/agent.pt
+-Eval env:     SpuriousFourRooms-v0  goal_room=1  yellow_room=off
+-Episodes:     100  (base_seed=1000, deterministic=False)
+-Success rate: 0.240  (24/100)
+-Mean return:  0.1739  (std 0.3270)
+-Mean length:  83.3  (std 31.9)
+diff --git a/results/baseline_random_stest.txt b/results/baseline_random_stest.txt
+deleted file mode 100644
+index eb18a7d..0000000
+--- a/results/baseline_random_stest.txt
++++ /dev/null
+@@ -1,7 +0,0 @@
+-
+-Agent:        runs/grandom_yoff__baseline_random__1__1779560930/agent.pt
+-Eval env:     SpuriousFourRooms-v0  goal_room=random  yellow_room=off
+-Episodes:     100  (base_seed=2000, deterministic=False)
+-Success rate: 0.260  (26/100)
+-Mean return:  0.2137  (std 0.3682)
+-Mean length:  79.2  (std 36.2)
+diff --git a/results/baseline_random_strain.txt b/results/baseline_random_strain.txt
+deleted file mode 100644
+index ec2234e..0000000
+--- a/results/baseline_random_strain.txt
++++ /dev/null
+@@ -1,7 +0,0 @@
+-
+-Agent:        runs/grandom_yoff__baseline_random__1__1779560930/agent.pt
+-Eval env:     SpuriousFourRooms-v0  goal_room=random  yellow_room=off
+-Episodes:     100  (base_seed=1000, deterministic=False)
+-Success rate: 0.300  (30/100)
+-Mean return:  0.2478  (std 0.3851)
+-Mean length:  75.8  (std 37.8)
+diff --git a/results/cond_A_stest.txt b/results/cond_A_stest.txt
+deleted file mode 100644
+index e6fd37f..0000000
+--- a/results/cond_A_stest.txt
++++ /dev/null
+@@ -1,7 +0,0 @@
+-
+-Agent:        runs/g1_yfollow__cond_A__1__1779560930/agent.pt
+-Eval env:     SpuriousFourRooms-v0  goal_room=random  yellow_room=off
+-Episodes:     100  (base_seed=2000, deterministic=False)
+-Success rate: 0.190  (19/100)
+-Mean return:  0.1328  (std 0.3006)
+-Mean length:  87.3  (std 29.5)
+diff --git a/results/cond_A_strain.txt b/results/cond_A_strain.txt
+deleted file mode 100644
+index 51d5c7a..0000000
+--- a/results/cond_A_strain.txt
++++ /dev/null
+@@ -1,7 +0,0 @@
+-
+-Agent:        runs/g1_yfollow__cond_A__1__1779560930/agent.pt
+-Eval env:     SpuriousFourRooms-v0  goal_room=1  yellow_room=follow
+-Episodes:     100  (base_seed=1000, deterministic=False)
+-Success rate: 0.300  (30/100)
+-Mean return:  0.2096  (std 0.3389)
+-Mean length:  80.0  (std 32.9)
+diff --git a/results/cond_B_stest.txt b/results/cond_B_stest.txt
+deleted file mode 100644
+index 0d2f674..0000000
+--- a/results/cond_B_stest.txt
++++ /dev/null
+@@ -1,7 +0,0 @@
+-
+-Agent:        runs/g1_yrandom__cond_B__1__1779560930/agent.pt
+-Eval env:     SpuriousFourRooms-v0  goal_room=random  yellow_room=off
+-Episodes:     100  (base_seed=2000, deterministic=False)
+-Success rate: 0.300  (30/100)
+-Mean return:  0.2095  (std 0.3478)
+-Mean length:  80.0  (std 34.0)
+diff --git a/results/cond_B_strain.txt b/results/cond_B_strain.txt
+deleted file mode 100644
+index 0022c4b..0000000
+--- a/results/cond_B_strain.txt
++++ /dev/null
+@@ -1,7 +0,0 @@
+-
+-Agent:        runs/g1_yrandom__cond_B__1__1779560930/agent.pt
+-Eval env:     SpuriousFourRooms-v0  goal_room=1  yellow_room=random
+-Episodes:     100  (base_seed=1000, deterministic=False)
+-Success rate: 0.270  (27/100)
+-Mean return:  0.2122  (std 0.3652)
+-Mean length:  79.4  (std 35.9)
+diff --git a/results/cond_C_stest.txt b/results/cond_C_stest.txt
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/results/cond_C_strain.txt b/results/cond_C_strain.txt
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/results/cond_D_stest.txt b/results/cond_D_stest.txt
+deleted file mode 100644
+index 68ad375..0000000
+--- a/results/cond_D_stest.txt
++++ /dev/null
+@@ -1,7 +0,0 @@
+-
+-Agent:        runs/grandom_yrandom__cond_D__1__1779560930/agent.pt
+-Eval env:     SpuriousFourRooms-v0  goal_room=random  yellow_room=off
+-Episodes:     100  (base_seed=2000, deterministic=False)
+-Success rate: 0.300  (30/100)
+-Mean return:  0.1990  (std 0.3318)
+-Mean length:  81.2  (std 32.3)
+diff --git a/results/cond_D_strain.txt b/results/cond_D_strain.txt
+deleted file mode 100644
+index 3f21bff..0000000
+--- a/results/cond_D_strain.txt
++++ /dev/null
+@@ -1,7 +0,0 @@
+-
+-Agent:        runs/grandom_yrandom__cond_D__1__1779560930/agent.pt
+-Eval env:     SpuriousFourRooms-v0  goal_room=random  yellow_room=random
+-Episodes:     100  (base_seed=1000, deterministic=False)
+-Success rate: 0.220  (22/100)
+-Mean return:  0.1686  (std 0.3331)
+-Mean length:  83.7  (std 32.7)
+diff --git a/wandb/debug-internal.log b/wandb/debug-internal.log
+index d44e6ec..daa3323 120000
+--- a/wandb/debug-internal.log
++++ b/wandb/debug-internal.log
+@@ -1 +1 @@
+-run-20260523_132851-nfg3fef7/logs/debug-internal.log
+\ No newline at end of file
++run-20260523_133746-rg2p571h/logs/debug-internal.log
+\ No newline at end of file
+diff --git a/wandb/debug.log b/wandb/debug.log
+index 73d3f14..dd65711 120000
+--- a/wandb/debug.log
++++ b/wandb/debug.log
+@@ -1 +1 @@
+-run-20260523_132851-nfg3fef7/logs/debug.log
+\ No newline at end of file
++run-20260523_133746-rg2p571h/logs/debug.log
+\ No newline at end of file
+diff --git a/wandb/latest-run b/wandb/latest-run
+index 4f14f65..f19211a 120000
+--- a/wandb/latest-run
++++ b/wandb/latest-run
+@@ -1 +1 @@
+-run-20260523_132851-nfg3fef7
+\ No newline at end of file
++run-20260523_133746-rg2p571h
+\ No newline at end of file

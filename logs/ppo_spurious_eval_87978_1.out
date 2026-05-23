@@ -1,0 +1,20 @@
+Unloading shared
+  WARNING: Did not unuse /cm/shared/modulefiles
+[start] Sat May 23 01:40:44 PM CDT 2026  task=1  name=baseline_random  ckpt=runs/grandom_yoff__baseline_random__1__1779561465/agent.pt
+----- S_train: own env (goal=random, yellow=off) -----
+
+Agent:        runs/grandom_yoff__baseline_random__1__1779561465/agent.pt
+Eval env:     SpuriousFourRooms-v0  goal_room=random  yellow_room=off
+Episodes:     100  (base_seed=1000, deterministic=False)
+Success rate: 0.310  (31/100)
+Mean return:  0.2515  (std 0.3873)
+Mean length:  75.5  (std 38.1)
+----- S_test: held-out (goal=random, yellow=off) -----
+
+Agent:        runs/grandom_yoff__baseline_random__1__1779561465/agent.pt
+Eval env:     SpuriousFourRooms-v0  goal_room=random  yellow_room=off
+Episodes:     100  (base_seed=2000, deterministic=False)
+Success rate: 0.260  (26/100)
+Mean return:  0.2042  (std 0.3539)
+Mean length:  80.2  (std 34.6)
+[done] Sat May 23 01:40:56 PM CDT 2026  name=baseline_random

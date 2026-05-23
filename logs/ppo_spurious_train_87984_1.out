@@ -1,0 +1,6 @@
+Unloading shared
+  WARNING: Did not unuse /cm/shared/modulefiles
+[start] Sat May 23 01:42:31 PM CDT 2026  host=node047  task=1  policy=mlp  name=baseline_random
+name
+NVIDIA L40S
+ERROR: wandb not logged in. Run 'wandb login' on the login node.

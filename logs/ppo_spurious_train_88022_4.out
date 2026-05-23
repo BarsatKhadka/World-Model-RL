@@ -1,0 +1,8 @@
+Unloading shared
+  WARNING: Did not unuse /cm/shared/modulefiles
+[start] Sat May 23 01:49:34 PM CDT 2026  host=node049  task=4  policy=mlp  name=cond_C
+name
+NVIDIA L40S
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mmlp__grandom_yfollow__cond_C__1__1779562175[0m at: [34mhttps://wandb.ai/animeconqueror108-university-of-southern-mississippi/ppo-spurious/runs/34oj55xz[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20260523_134935-34oj55xz/logs[0m

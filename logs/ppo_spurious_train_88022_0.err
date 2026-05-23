@@ -1,0 +1,35 @@
+/ddnlus/barsatkhadka/World-Model-RL/venv/lib/python3.12/site-packages/tyro/_parsers.py:353: UserWarning: The field `wandb-entity` is annotated with type `<class 'str'>`, but the default value `None` has type `<class 'NoneType'>`. We'll try to handle this gracefully, but it may cause unexpected behavior.
+  warnings.warn(message)
+/ddnlus/barsatkhadka/World-Model-RL/venv/lib/python3.12/site-packages/tyro/_parsers.py:353: UserWarning: The field `target-kl` is annotated with type `<class 'float'>`, but the default value `None` has type `<class 'NoneType'>`. We'll try to handle this gracefully, but it may cause unexpected behavior.
+  warnings.warn(message)
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /ddnlus/barsatkhadka/.netrc.
+wandb: Currently logged in as: animeconqueror108 (animeconqueror108-university-of-southern-mississippi) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.27.0
+wandb: Run data is saved locally in /ddnlus/barsatkhadka/World-Model-RL/wandb/run-20260523_134840-6afedr49
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run mlp__g1_yoff__baseline_fixed__1__1779562120
+wandb: ⭐️ View project at https://wandb.ai/animeconqueror108-university-of-southern-mississippi/ppo-spurious
+wandb: 🚀 View run at https://wandb.ai/animeconqueror108-university-of-southern-mississippi/ppo-spurious/runs/6afedr49
+Traceback (most recent call last):
+  File "/ddnlus/barsatkhadka/World-Model-RL/ppo.py", line 249, in <module>
+    agent = build_agent(args.policy, envs).to(device)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ddnlus/barsatkhadka/World-Model-RL/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1384, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/ddnlus/barsatkhadka/World-Model-RL/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 934, in _apply
+    module._apply(fn)
+  File "/ddnlus/barsatkhadka/World-Model-RL/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 934, in _apply
+    module._apply(fn)
+  File "/ddnlus/barsatkhadka/World-Model-RL/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 965, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/ddnlus/barsatkhadka/World-Model-RL/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1370, in convert
+    return t.to(
+           ^^^^^
+torch.AcceleratorError: CUDA error: uncorrectable ECC error encountered
+Search for `cudaErrorECCUncorrectable' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+

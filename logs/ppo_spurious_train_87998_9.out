@@ -1,0 +1,6 @@
+Unloading shared
+  WARNING: Did not unuse /cm/shared/modulefiles
+[start] Sat May 23 01:45:00 PM CDT 2026  host=node049  task=9  policy=cnn  name=cond_B
+name
+NVIDIA L40S
+ERROR: wandb not logged in. Run 'wandb login' on the login node.
