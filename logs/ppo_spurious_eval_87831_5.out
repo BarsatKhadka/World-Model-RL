@@ -1,0 +1,20 @@
+Unloading shared
+  WARNING: Did not unuse /cm/shared/modulefiles
+[start] Sat May 23 01:15:53 PM CDT 2026  task=5  name=cond_D  ckpt=runs/grandom_yrandom__cond_D__1__1779559961/agent.pt
+----- S_train: own env (goal=random, yellow=random) -----
+
+Agent:        runs/grandom_yrandom__cond_D__1__1779559961/agent.pt
+Eval env:     SpuriousFourRooms-v0  goal_room=random  yellow_room=random
+Episodes:     100  (base_seed=1000, deterministic=False)
+Success rate: 0.210  (21/100)
+Mean return:  0.1674  (std 0.3351)
+Mean length:  83.7  (std 32.9)
+----- S_test: held-out (goal=random, yellow=off) -----
+
+Agent:        runs/grandom_yrandom__cond_D__1__1779559961/agent.pt
+Eval env:     SpuriousFourRooms-v0  goal_room=random  yellow_room=off
+Episodes:     100  (base_seed=2000, deterministic=False)
+Success rate: 0.280  (28/100)
+Mean return:  0.2009  (std 0.3445)
+Mean length:  80.8  (std 33.7)
+[done] Sat May 23 01:16:01 PM CDT 2026  name=cond_D

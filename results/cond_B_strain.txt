@@ -1,0 +1,7 @@
+
+Agent:        runs/g1_yrandom__cond_B__1__1779559961/agent.pt
+Eval env:     SpuriousFourRooms-v0  goal_room=1  yellow_room=random
+Episodes:     100  (base_seed=1000, deterministic=False)
+Success rate: 0.260  (26/100)
+Mean return:  0.1777  (std 0.3200)
+Mean length:  83.1  (std 31.0)

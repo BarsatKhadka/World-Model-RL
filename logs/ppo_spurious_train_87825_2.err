@@ -1,0 +1,15 @@
+/ddnlus/barsatkhadka/World-Model-RL/venv/lib/python3.12/site-packages/tyro/_parsers.py:353: UserWarning: The field `wandb-entity` is annotated with type `<class 'str'>`, but the default value `None` has type `<class 'NoneType'>`. We'll try to handle this gracefully, but it may cause unexpected behavior.
+  warnings.warn(message)
+/ddnlus/barsatkhadka/World-Model-RL/venv/lib/python3.12/site-packages/tyro/_parsers.py:353: UserWarning: The field `target-kl` is annotated with type `<class 'float'>`, but the default value `None` has type `<class 'NoneType'>`. We'll try to handle this gracefully, but it may cause unexpected behavior.
+  warnings.warn(message)
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /ddnlus/barsatkhadka/.netrc.
+wandb: Currently logged in as: animeconqueror108 (animeconqueror108-university-of-southern-mississippi) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run u080fn3y
+wandb: Tracking run with wandb version 0.27.0
+wandb: Run data is saved locally in /ddnlus/barsatkhadka/World-Model-RL/wandb/run-20260523_131242-u080fn3y
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run g1_yfollow__cond_A__1__1779559961
+wandb: ⭐️ View project at https://wandb.ai/animeconqueror108-university-of-southern-mississippi/ppo-spurious
+wandb: 🚀 View run at https://wandb.ai/animeconqueror108-university-of-southern-mississippi/ppo-spurious/runs/u080fn3y
+/ddnlus/barsatkhadka/World-Model-RL/venv/lib/python3.12/site-packages/torch/cuda/__init__.py:187: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 12080). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:119.)
+  return torch._C._cuda_getDeviceCount() > 0
