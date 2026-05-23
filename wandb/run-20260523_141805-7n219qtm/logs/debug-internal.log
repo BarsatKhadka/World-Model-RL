@@ -1,0 +1,18 @@
+{"time":"2026-05-23T14:18:05.425026034-05:00","level":"INFO","msg":"wandb-core"}
+{"time":"2026-05-23T14:18:05.425498874-05:00","level":"INFO","msg":"stream: starting","core version":"0.27.0"}
+{"time":"2026-05-23T14:18:05.650304032-05:00","level":"INFO","msg":"stream: created new stream","id":"7n219qtm"}
+{"time":"2026-05-23T14:18:05.650534745-05:00","level":"INFO","msg":"handler: started"}
+{"time":"2026-05-23T14:18:05.651261335-05:00","level":"INFO","msg":"stream: started"}
+{"time":"2026-05-23T14:18:05.651397332-05:00","level":"INFO","msg":"sender: started"}
+{"time":"2026-05-23T14:18:05.651402472-05:00","level":"INFO","msg":"writer: started","stream_id":"7n219qtm"}
+{"time":"2026-05-23T14:18:07.145490658-05:00","level":"INFO","msg":"filestream: sending request","total_files":1,"console_offset":0,"console_lines":1}
+{"time":"2026-05-23T14:18:07.444895619-05:00","level":"INFO","msg":"filestream: request sent","status":"200 OK"}
+{"time":"2026-05-23T14:18:15.937158495-05:00","level":"WARN","msg":"tensorboard: no root directory","error":"timed out after 10s"}
+{"time":"2026-05-23T14:18:15.937226806-05:00","level":"INFO","msg":"tensorboard: tracking new log directory","rootDir":{},"logDir":"LocalOrCloudPath(LocalPath=\"/ddnlus/barsatkhadka/World-Model-RL/runs/mlp__grandom_yfollow__cond_C__1__1779563884\")","namespace":""}
+{"time":"2026-05-23T14:18:15.939062635-05:00","level":"INFO","msg":"tensorboard: saving file","fileLocation":"/ddnlus/barsatkhadka/World-Model-RL/runs/mlp__grandom_yfollow__cond_C__1__1779563884/events.out.tfevents.1779563885.node048.3310136.0","runPath":"runs/mlp__grandom_yfollow__cond_C__1__1779563884/events.out.tfevents.1779563885.node048.3310136.0"}
+{"time":"2026-05-23T14:18:15.942276925-05:00","level":"INFO","msg":"flowcontrol: backed up, offloading to disk","recordNumber":1028}
+{"time":"2026-05-23T14:18:15.94241278-05:00","level":"INFO","msg":"flowcontrol: unblocked","totalOffloaded":1}
+{"time":"2026-05-23T14:18:15.94249849-05:00","level":"INFO","msg":"flowcontrol: backed up, offloading to disk","recordNumber":1062}
+{"time":"2026-05-23T14:18:15.942999033-05:00","level":"INFO","msg":"flowcontrol: unblocked","totalOffloaded":51}
+{"time":"2026-05-23T14:18:15.944300121-05:00","level":"INFO","msg":"flowcontrol: backed up, offloading to disk","recordNumber":1282}
+{"time":"2026-05-23T14:18:15.957687228-05:00","level":"INFO","msg":"flowcontrol: unblocked","totalOffloaded":2336}

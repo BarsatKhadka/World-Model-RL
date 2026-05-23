@@ -1,0 +1,13 @@
+/ddnlus/barsatkhadka/World-Model-RL/venv/lib/python3.12/site-packages/tyro/_parsers.py:353: UserWarning: The field `wandb-entity` is annotated with type `<class 'str'>`, but the default value `None` has type `<class 'NoneType'>`. We'll try to handle this gracefully, but it may cause unexpected behavior.
+  warnings.warn(message)
+/ddnlus/barsatkhadka/World-Model-RL/venv/lib/python3.12/site-packages/tyro/_parsers.py:353: UserWarning: The field `target-kl` is annotated with type `<class 'float'>`, but the default value `None` has type `<class 'NoneType'>`. We'll try to handle this gracefully, but it may cause unexpected behavior.
+  warnings.warn(message)
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /ddnlus/barsatkhadka/.netrc.
+wandb: Currently logged in as: animeconqueror108 (animeconqueror108-university-of-southern-mississippi) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.27.0
+wandb: Run data is saved locally in /ddnlus/barsatkhadka/World-Model-RL/wandb/run-20260523_141805-7n219qtm
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run mlp__grandom_yfollow__cond_C__1__1779563884
+wandb: ⭐️ View project at https://wandb.ai/animeconqueror108-university-of-southern-mississippi/ppo-spurious
+wandb: 🚀 View run at https://wandb.ai/animeconqueror108-university-of-southern-mississippi/ppo-spurious/runs/7n219qtm
+slurmstepd: error: *** JOB 88066 ON node048 CANCELLED AT 2026-05-23T14:18:18 ***
