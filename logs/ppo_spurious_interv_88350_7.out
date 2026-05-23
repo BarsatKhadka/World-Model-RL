@@ -1,0 +1,34 @@
+Unloading shared
+  WARNING: Did not unuse /cm/shared/modulefiles
+[start] Sat May 23 04:21:26 PM CDT 2026  task=7  policy=cnn  name=baseline_random  ckpt=runs/cnn__grandom_yoff__baseline_random__1__1779562055/agent.pt
+----- visible teleport (goal moves into agent's 7x7 view) -----
+
+Agent:               runs/cnn__grandom_yoff__baseline_random__1__1779562055/agent.pt
+Policy:              cnn
+Eval distribution:   goal_room=random  yellow_room=off
+Teleport mode:       visible
+Intervention step:   30
+Valid episodes:      200  (skipped 161)
+
+Reach-new-goal rate:                 0.965  (193/200)
+Steps to reach (when reached):       mean=6.4  median=5.0
+Initial dist to new goal:            mean=3.40  median=3.0
+Closest approach (min dist after):   mean=0.12  median=0.0
+Distance drop in first 5 steps:      mean=-2.19  median=-3.0
+  (negative = moved toward new goal,  positive = moved away,  ~0 = no response)
+----- invisible teleport (goal moves far outside agent's view) -----
+
+Agent:               runs/cnn__grandom_yoff__baseline_random__1__1779562055/agent.pt
+Policy:              cnn
+Eval distribution:   goal_room=random  yellow_room=off
+Teleport mode:       invisible
+Intervention step:   30
+Valid episodes:      200  (skipped 117)
+
+Reach-new-goal rate:                 0.530  (106/200)
+Steps to reach (when reached):       mean=32.6  median=30.5
+Initial dist to new goal:            mean=12.77  median=12.0
+Closest approach (min dist after):   mean=3.50  median=0.0
+Distance drop in first 5 steps:      mean=-0.24  median=-1.0
+  (negative = moved toward new goal,  positive = moved away,  ~0 = no response)
+[done] Sat May 23 04:21:47 PM CDT 2026  policy=cnn  name=baseline_random

@@ -1,0 +1,14 @@
+
+Agent:               runs/cnn__g1_yoff__baseline_fixed__1__1779562055/agent.pt
+Policy:              cnn
+Eval distribution:   goal_room=random  yellow_room=off
+Teleport mode:       visible
+Intervention step:   30
+Valid episodes:      200  (skipped 97)
+
+Reach-new-goal rate:                 0.935  (187/200)
+Steps to reach (when reached):       mean=9.0  median=7.0
+Initial dist to new goal:            mean=3.64  median=3.5
+Closest approach (min dist after):   mean=0.19  median=0.0
+Distance drop in first 5 steps:      mean=-1.66  median=-2.0
+  (negative = moved toward new goal,  positive = moved away,  ~0 = no response)

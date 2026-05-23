@@ -1,0 +1,34 @@
+Unloading shared
+  WARNING: Did not unuse /cm/shared/modulefiles
+[start] Sat May 23 04:21:26 PM CDT 2026  task=8  policy=cnn  name=cond_A  ckpt=runs/cnn__g1_yfollow__cond_A__1__1779563867/agent.pt
+----- visible teleport (goal moves into agent's 7x7 view) -----
+
+Agent:               runs/cnn__g1_yfollow__cond_A__1__1779563867/agent.pt
+Policy:              cnn
+Eval distribution:   goal_room=random  yellow_room=off
+Teleport mode:       visible
+Intervention step:   30
+Valid episodes:      200  (skipped 113)
+
+Reach-new-goal rate:                 0.830  (166/200)
+Steps to reach (when reached):       mean=8.0  median=6.0
+Initial dist to new goal:            mean=3.40  median=3.0
+Closest approach (min dist after):   mean=0.50  median=0.0
+Distance drop in first 5 steps:      mean=-1.41  median=-2.0
+  (negative = moved toward new goal,  positive = moved away,  ~0 = no response)
+----- invisible teleport (goal moves far outside agent's view) -----
+
+Agent:               runs/cnn__g1_yfollow__cond_A__1__1779563867/agent.pt
+Policy:              cnn
+Eval distribution:   goal_room=random  yellow_room=off
+Teleport mode:       invisible
+Intervention step:   30
+Valid episodes:      200  (skipped 90)
+
+Reach-new-goal rate:                 0.465  (93/200)
+Steps to reach (when reached):       mean=34.7  median=34.0
+Initial dist to new goal:            mean=12.81  median=12.0
+Closest approach (min dist after):   mean=3.52  median=3.0
+Distance drop in first 5 steps:      mean=-0.29  median=+0.0
+  (negative = moved toward new goal,  positive = moved away,  ~0 = no response)
+[done] Sat May 23 04:21:48 PM CDT 2026  policy=cnn  name=cond_A

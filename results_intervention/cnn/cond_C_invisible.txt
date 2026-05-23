@@ -1,0 +1,14 @@
+
+Agent:               runs/cnn__grandom_yfollow__cond_C__1__1779563867/agent.pt
+Policy:              cnn
+Eval distribution:   goal_room=random  yellow_room=off
+Teleport mode:       invisible
+Intervention step:   30
+Valid episodes:      200  (skipped 90)
+
+Reach-new-goal rate:                 0.625  (125/200)
+Steps to reach (when reached):       mean=35.6  median=32.0
+Initial dist to new goal:            mean=12.59  median=12.0
+Closest approach (min dist after):   mean=2.47  median=0.0
+Distance drop in first 5 steps:      mean=-0.10  median=+0.0
+  (negative = moved toward new goal,  positive = moved away,  ~0 = no response)

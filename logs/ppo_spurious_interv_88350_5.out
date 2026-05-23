@@ -1,0 +1,4 @@
+Unloading shared
+  WARNING: Did not unuse /cm/shared/modulefiles
+[start] Sat May 23 04:21:24 PM CDT 2026  task=5  policy=mlp  name=cond_D  ckpt=runs/mlp__grandom_yrandom__cond_D__1__1779562050/agent.pt
+----- visible teleport (goal moves into agent's 7x7 view) -----

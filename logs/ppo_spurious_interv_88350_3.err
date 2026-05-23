@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/ddnlus/barsatkhadka/World-Model-RL/intervention.py", line 214, in <module>
+    r = run_intervention_episode(env, agent, device, args, rng)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ddnlus/barsatkhadka/World-Model-RL/intervention.py", line 158, in run_intervention_episode
+    obs = env.observation(obs_dict)
+          ^^^^^^^^^^^^^^^
+AttributeError: 'RecordEpisodeStatistics' object has no attribute 'observation'
