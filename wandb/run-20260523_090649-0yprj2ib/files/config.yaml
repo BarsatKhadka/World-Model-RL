@@ -1,0 +1,115 @@
+_wandb:
+    value:
+        cli_version: 0.27.0
+        code_path: code/ppo.py
+        e:
+            paty3ydejj69avsom9ib4aq8vdpasouf:
+                args:
+                    - --track
+                    - --wandb-project-name
+                    - ppo-minigrid
+                codePath: ppo.py
+                codePathLocal: ppo.py
+                cpu_count: 20
+                cpu_count_logical: 28
+                cudaVersion: "13.1"
+                disk:
+                    /:
+                        total: "646011940864"
+                        used: "609726316544"
+                email: animeconqueror108@gmail.com
+                executable: C:\Users\barsa\Documents\World-Model-RL\venv\Scripts\python.exe
+                git:
+                    commit: 37b79ebf8264d73420aabb31e032e6745c2ca953
+                    remote: https://github.com/BarsatKhadka/World-Model-RL.git
+                gpu: NVIDIA GeForce RTX 5060 Laptop GPU
+                gpu_count: 1
+                gpu_nvidia:
+                    - architecture: Blackwell
+                      cudaCores: 3328
+                      memoryTotal: "8546942976"
+                      name: NVIDIA GeForce RTX 5060 Laptop GPU
+                      uuid: GPU-2a64bdce-8cba-482d-688d-364f2942e534
+                host: AlexBK
+                memory:
+                    total: "16890322944"
+                os: Windows-10-10.0.26100-SP0
+                program: C:\Users\barsa\Documents\World-Model-RL\ppo.py
+                python: CPython 3.10.0
+                root: C:\Users\barsa\Documents\World-Model-RL
+                startedAt: "2026-05-23T14:06:49.404573Z"
+                writerId: paty3ydejj69avsom9ib4aq8vdpasouf
+        m: []
+        python_version: 3.10.0
+        t:
+            "1":
+                - 1
+            "2":
+                - 1
+            "3":
+                - 13
+                - 16
+                - 35
+                - 41
+            "4": 3.10.0
+            "5": 0.27.0
+            "8":
+                - 3
+            "12": 0.27.0
+            "13": windows-amd64
+anneal_lr:
+    value: true
+batch_size:
+    value: 512
+capture_video:
+    value: false
+clip_coef:
+    value: 0.2
+clip_vloss:
+    value: true
+cuda:
+    value: true
+ent_coef:
+    value: 0.01
+env_id:
+    value: MiniGrid-FourRooms-v0
+exp_name:
+    value: ppo
+gae_lambda:
+    value: 0.95
+gamma:
+    value: 0.99
+learning_rate:
+    value: 0.00025
+max_grad_norm:
+    value: 0.5
+minibatch_size:
+    value: 128
+norm_adv:
+    value: true
+num_envs:
+    value: 4
+num_iterations:
+    value: 976
+num_minibatches:
+    value: 4
+num_steps:
+    value: 128
+seed:
+    value: 1
+target_kl:
+    value: null
+torch_deterministic:
+    value: true
+total_timesteps:
+    value: 500000
+track:
+    value: true
+update_epochs:
+    value: 4
+vf_coef:
+    value: 0.5
+wandb_entity:
+    value: null
+wandb_project_name:
+    value: ppo-minigrid

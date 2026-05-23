@@ -1,0 +1,8 @@
+gymnasium
+minigrid
+numpy
+torch
+tyro
+tensorboard
+wandb
+pandas
