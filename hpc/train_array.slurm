@@ -25,6 +25,7 @@ mkdir -p logs runs
 source venv/bin/activate
 
 TIMESTEPS="${TIMESTEPS:-2000000}"   # 2M steps
+SEED="${SEED:-1}"                    # override with: SEED=2 sbatch --array=9 hpc/train_array.slurm
 
 # Array maps to (policy, condition):
 #   tasks 0-5   -> mlp, conditions 0-5
@@ -65,7 +66,7 @@ python -u ppo.py \
     --yellow-room "$YELLOW" \
     --policy "$POLICY" \
     --total-timesteps "$TIMESTEPS" \
-    --seed 1 \
+    --seed "$SEED" \
     --track \
     --wandb-project-name ppo-spurious
 
